@@ -6,9 +6,8 @@ node_modules
 .pnp.js
 .yarn/install-state.gz
 
+node_modules
 new.py
-new2.py
-test.js
 
 # testing
 /coverage

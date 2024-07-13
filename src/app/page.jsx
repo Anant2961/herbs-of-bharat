@@ -1,6 +1,17 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import React from "react";
+import Header from "./components/Header";
+import Container from "./components/Container";
+import Footer from "./components/Footer";
 
 export default function Home() {
-  return <h1>hello world</h1>;
+  return (
+    <>
+      <Header />
+      <Container>
+        <p>Testing</p>
+      </Container>
+      <Footer />
+    </>
+  );
 }
