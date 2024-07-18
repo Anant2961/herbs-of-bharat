@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { getData } from "../lib/index";
 import { config } from "../config";
+import Container from "./Container";
 import Carousel from "react-multi-carousel";
 import { Link } from "next/link";
 // import "react-multi-carousel/lib/styles.css";
@@ -46,29 +47,30 @@ const BannerCategories = () => {
     fetchData();
   }, []);
   return (
-    <Carousel
-      responsive={responsive}
-      infinite={true}
-      autoPlay={true}
-      transitionDuration={true}
-      className="flex flex-row p-4 max-w-screen-xl mx-auto lg:px-0 relative"
-      CustomLeftArrow={<CustomLeftArrow />}
-      CustomRightArrow={<CustomRightArrow />}
-    >
-      {categories.map((category) => (
-        <div
-          key={category._id}
-          className="flex items-center gap-x-2 p-1 border border-gray-100 mr-1 flex-1 rounded-md hover:border-skyText hover:shadow-lg"
-        >
-          <img
-            src={category.image}
-            alt="categoryImage"
-            className="w-10 h-10 rounded-full object-cover"
-          />
-          <p className="text-sm font-semibold"> {category.name}</p>
-        </div>
-      ))}
-    </Carousel>
+    <>
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        autoPlay={true}
+        className="flex flex-row p-4 max-w-screen-xl mx-auto lg:px-0 relative"
+        CustomLeftArrow={<CustomLeftArrow />}
+        CustomRightArrow={<CustomRightArrow />}
+      >
+        {categories.map((category) => (
+          <div
+            key={category._id}
+            className="flex items-center gap-x-2 p-1 border border-gray-100 mr-1 flex-1 rounded-md hover:border-skyText hover:shadow-lg"
+          >
+            <img
+              src={category.image}
+              alt="categoryImage"
+              className="w-10 h-10 rounded-full object-cover"
+            />
+            <p className="text-sm font-semibold"> {category.name}</p>
+          </div>
+        ))}
+      </Carousel>
+    </>
   );
 };
 
