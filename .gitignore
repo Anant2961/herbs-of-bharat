@@ -10,8 +10,6 @@ node_modules
 new.py
 
 # testing
-src/app/lib/*
-server/*
 
 # next.js
 /.next/
