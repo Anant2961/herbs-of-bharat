@@ -10,7 +10,8 @@ node_modules
 new.py
 
 # testing
-/coverage
+src/app/lib/*
+server/*
 
 # next.js
 /.next/
