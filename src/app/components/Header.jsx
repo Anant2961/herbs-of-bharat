@@ -15,7 +15,6 @@ import Slider from "react-slick";
 import Container from "./Container";
 import { getData } from "../lib/index";
 import { config } from "../config";
-import PropTypes from "prop-types";
 import { CategoryProps } from "../types";
 import Link from "next/link";
 
@@ -135,10 +134,6 @@ const Header = () => {
       </div>
     </>
   );
-};
-
-Header.PropTypes = {
-  Category: PropTypes.arrayOf(PropTypes.shape(CategoryProps)).isRequired,
 };
 
 export default Header;

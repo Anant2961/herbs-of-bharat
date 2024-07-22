@@ -3,7 +3,7 @@ const checkConfig = (server) => {
   switch (server) {
     case "production":
       config = {
-        baseUrl: "",
+        baseUrl: "https://herbs-of-bharat-backend.vercel.app",
       };
       break;
     case "local":

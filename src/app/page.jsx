@@ -6,6 +6,7 @@ import Container from "./components/Container";
 import Footer from "./components/Footer";
 import BannerCategories from "./components/BannerCategories";
 import HomeBanner from "./components/HomeBanner";
+import Productlist from "./components/Productlist";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </Container> */}
       <BannerCategories />
       <HomeBanner />
+      <Productlist />
       <Footer />
     </>
   );

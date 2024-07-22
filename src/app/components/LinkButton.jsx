@@ -9,7 +9,7 @@ const LinkButton = ({ showButton, link, className }) => {
     className
   );
   return (
-    <Link href={link ? link : "/products"} className={newClassName}>
+    <Link href={link ? link : "/product"} className={newClassName}>
       {showButton && <FaArrowLeft />} start shopping
     </Link>
   );

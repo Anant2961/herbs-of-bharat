@@ -5,7 +5,7 @@ import { config } from "../config";
 import Container from "./Container";
 import Carousel from "react-multi-carousel";
 import { Link } from "next/link";
-// import "react-multi-carousel/lib/styles.css";
+import "react-multi-carousel/lib/styles.css";
 import CustomLeftArrow from "./CustomLeftArrow";
 import CustomRightArrow from "./CustomRightArrow";
 import { CategoryProps } from "../types";
