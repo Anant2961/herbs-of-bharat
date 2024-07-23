@@ -17,6 +17,7 @@ import { getData } from "../lib/index";
 import { config } from "../config";
 import { CategoryProps } from "../types";
 import Link from "next/link";
+import ProductCard from "./ProductCard";
 
 const bottomNavigation = [
   { title: "Home", link: "/" },
@@ -30,6 +31,20 @@ const bottomNavigation = [
 const Header = () => {
   const [searchText, setSearchText] = useState("");
   const [categories, setCategories] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const endpoint = `${config?.baseUrl}/products`;
+      try {
+        const data = await getData(endpoint);
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+    };
+    fetchData();
+  }, []);
   useEffect(() => {
     const fetchData = async () => {
       const endpoint = `${config?.baseUrl}/categories`;
@@ -43,6 +58,12 @@ const Header = () => {
     };
     fetchData();
   }, []);
+  useEffect(() => {
+    const filtered = products.filter((item) =>
+      item.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  }, [searchText]);
 
   return (
     <>
@@ -67,6 +88,30 @@ const Header = () => {
               <IoSearchOutline className="absolute top-2.5 right-4 text-xl" />
             )}
           </div>
+          {/* Search product will go here */}
+          {searchText && (
+            <div className="absolute left-0 top-20 w-full mx-auto max-h-[500px] px-10 py-5 bg-white z-20 overflow-y-scroll text-black shadow-lg shadow-skyText scrollbar-hide">
+              {filteredProducts.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
+                  {filteredProducts?.map((item) => (
+                    <ProductCard
+                      key={item?._id}
+                      item={item}
+                      setSearchText={setSearchText}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="py-10 bg-gray-50 w-full flex items-center justify-center border border-gray-600 rounded-md">
+                  <p className="text-xl font-normal">
+                    Nothing matches with your search keywords{" "}
+                    <span className="underline underline-offset-2 decoration-[1px] text-red-500 font-semibold">{`(${searchText})`}</span>
+                  </p>
+                  . Please try again
+                </div>
+              )}
+            </div>
+          )}
           {/* Menu */}
           <div className="flex items-center gap-x-6 text-2xl">
             <FiUser className="hover:text-skyText duration-200 cursor-pointer" />

@@ -33,7 +33,7 @@ const Pagination = () => {
   }, []);
   const itemsPerPage = 15;
   const [itemOffset, setItemOffset] = useState(0);
-  const [itemStart, setItemStart] = useState(1);
+  const [itemStart, setItemStart] = useState(2);
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = products.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(products.length / itemsPerPage);
