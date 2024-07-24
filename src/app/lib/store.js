@@ -71,7 +71,6 @@ export const store = create(
           const existingProduct = state.cartProduct.find(
             (p) => p._id === productId
           );
-
           if (existingProduct) {
             return {
               cartProduct: state.cartProduct.map((p) =>
@@ -125,7 +124,7 @@ export const store = create(
       },
     }),
     {
-      name: "supergear-storage",
+      name: "herbs_of_bharat-storage",
       storage: customStorage,
     }
   )

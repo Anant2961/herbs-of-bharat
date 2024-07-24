@@ -69,7 +69,9 @@ const Header = () => {
     <>
       <div className="w-full bg:whiteText">
         <div className="max-w-screen-xl mx-auto h-20 flex items-center justify-between px-4 py-2 lg:px-0">
-          <img src="assets/pro_logo.jpeg" alt="Mountains" className="w-24" />
+          <Link href={`/`}>
+            <img src="assets/pro_logo.jpeg" alt="Mountains" className="w-24" />
+          </Link>
           {/* search bar */}
           <div className="hidden md:inline-flex max-w-3xl w-full relative">
             <input
